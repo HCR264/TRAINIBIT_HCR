@@ -1,21 +1,21 @@
 import java.util.Scanner;
 
 public class Main {
-    public static Boolean CodelandUsernameValidation(String str){
+    public static String CodelandUsernameValidation(String str){
 
         if (str.length()<4 || str.length()>25) {
-            return false;
+            return "false";
         }
         if (!Character.toString(str.charAt(0)).matches("[a-zA-Z]")) {
-            return false;
+            return "false";
         }
         if (!str.matches("^[a-zA-Z0-9_]*$")) {
-            return false;
+            return "false";
         }
         if (Character.toString(str.charAt(str.length()-1)).matches("_")) {
-            return false;
+            return "false";
         }
-        return true;
+        return "true";
     }
 
     public static void main(String[] args) {
@@ -24,6 +24,6 @@ public class Main {
         System.out.print("Ingresa tu nombre de usuario: ");
         var userName = scanner.nextLine();
 
-        System.out.println(CodelandUsernameValidation(userName));
+        System.out.println("El nombre de usuario es válido: " + CodelandUsernameValidation(userName));
     }
 }
